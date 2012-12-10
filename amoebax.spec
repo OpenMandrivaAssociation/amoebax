@@ -60,3 +60,10 @@ in the family.
 %{_datadir}/pixmaps/%{name}.svg
 %{_mandir}/man6/%{name}.6.*
 
+
+
+%changelog
+* Mon Apr 02 2012 Andrey Bondrov <abondrov@mandriva.org> 0.2.0-1mdv2011.0
++ Revision: 788696
+- imported package amoebax
+
