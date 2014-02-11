@@ -1,18 +1,18 @@
-Name:		amoebax
-Version:	0.2.0
-Release:	%mkrel 1
 Summary:	Action-Puzzle Game
+Name:		amoebax
+Version:	0.2.1
+Release:	1
 Group:		Games/Puzzles
 License:	GPLv2+ and Free Art
-URL:		http://www.emma-soft.com/games/amoebax/
+Url:		http://www.emma-soft.com/games/amoebax/
 Source0:	http://www.emma-soft.com/games/amoebax/download/%{name}-%{version}.tar.bz2
-Patch0:		amoebax-0.2.0-gcc43.patch
-BuildRequires:	SDL_mixer-devel
-BuildRequires:	SDL_image-devel
-BuildRequires:	zlib-devel
-BuildRequires:	png-devel
-BuildRequires:	pkgconfig(vorbis)
+Patch0:		amoebax-0.2.1-gcc43.patch
 BuildRequires:	doxygen
+BuildRequires:	pkgconfig(libpng)
+BuildRequires:	pkgconfig(SDL_image)
+BuildRequires:	pkgconfig(SDL_mixer)
+BuildRequires:	pkgconfig(vorbis)
+BuildRequires:	pkgconfig(zlib)
 
 %description
 Amoebax is a cute and addictive action-puzzle game. Due an awful mutation,
@@ -31,26 +31,6 @@ mode will let you have a good time with your friends. There is also catchy
 music, funny sound effects, and beautiful screens that sure appeal to everyone
 in the family.
 
-%prep
-%setup -q
-%patch0 -p1
-
-%build
-%configure2_5x
-%make
-
-%install
-%__rm -rf %{buildroot}
-%makeinstall_std
-
-%__mkdir_p %{buildroot}%{_iconsdir}/hicolor/scalable/apps
-%__cp %{buildroot}%{_datadir}/pixmaps/%{name}.svg %{buildroot}%{_iconsdir}/hicolor/scalable/apps/
-
-%__rm %{buildroot}%{_defaultdocdir}/%{name}/manual.pdf
-
-%clean
-%__rm -rf %{buildroot}
-
 %files
 %doc AUTHORS COPYING* NEWS README* THANKS TODO doc/manual.pdf
 %{_bindir}/%{name}
@@ -60,10 +40,21 @@ in the family.
 %{_datadir}/pixmaps/%{name}.svg
 %{_mandir}/man6/%{name}.6.*
 
+#----------------------------------------------------------------------------
 
+%prep
+%setup -q
+%patch0 -p1
 
-%changelog
-* Mon Apr 02 2012 Andrey Bondrov <abondrov@mandriva.org> 0.2.0-1mdv2011.0
-+ Revision: 788696
-- imported package amoebax
+%build
+%configure2_5x
+%make
+
+%install
+%makeinstall_std
+
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/scalable/apps
+cp %{buildroot}%{_datadir}/pixmaps/%{name}.svg %{buildroot}%{_iconsdir}/hicolor/scalable/apps/
+
+rm %{buildroot}%{_defaultdocdir}/%{name}/manual.pdf
 
