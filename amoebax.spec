@@ -1,7 +1,7 @@
 Summary:	Action-Puzzle Game
 Name:		amoebax
 Version:	0.2.1
-Release:	1
+Release:	2
 Group:		Games/Puzzles
 License:	GPLv2+ and Free Art
 Url:		http://www.emma-soft.com/games/amoebax/
