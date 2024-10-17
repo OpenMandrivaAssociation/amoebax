@@ -4,7 +4,7 @@ Version:	0.2.1
 Release:	2
 Group:		Games/Puzzles
 License:	GPLv2+ and Free Art
-Url:		http://www.emma-soft.com/games/amoebax/
+Url:		https://www.emma-soft.com/games/amoebax/
 Source0:	http://www.emma-soft.com/games/amoebax/download/%{name}-%{version}.tar.bz2
 Patch0:		amoebax-0.2.1-gcc43.patch
 BuildRequires:	doxygen
